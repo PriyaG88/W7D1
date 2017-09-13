@@ -7,7 +7,7 @@ const initialState = {
 const todosReducer = (state = initialState, action) => {
   switch(action.type) {
     case RECEIVE_TODOS:
-      const newState = {};
+      let newState;
       // iterating through action.todos setting a key value pair for each one in the new state.
       action.todos.forEach((todo, idx)=>{
         newState[idx] = todo;
@@ -25,7 +25,6 @@ const todosReducer = (state = initialState, action) => {
       newState = merge({}, state);
       delete newState[action.todo.id];
       return newState;
-      // Return a new state object by merging your previous state and your new object
     default:
       return state;
   }
